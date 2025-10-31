@@ -12,7 +12,7 @@ For this assignment, your task is to **analyze and improve the code in `src/main
    - Rewrite this README.md
    - List the **code smells** you identified
    - Describe the **refactoring patterns** you applied and how they improved the code
-  
+
 rename variable bI to increment_button
 rename variable bD to decrement_button
 rename variable bR to reset_button
