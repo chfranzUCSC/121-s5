@@ -1,8 +1,7 @@
 # Section 5 – Refactoring Code Smells in Practice
 
-<<<<<<< HEAD
-Chris Franz
-=======
+# <<<<<<< HEADChris Franz
+
 This activity is designed to help you practice identifying code smells and applying refactoring patterns to a real codebase in CMPM 121, Game Development Patterns.
 
 ## Assignment Instructions
@@ -25,6 +24,7 @@ rename variable bR to reset_button
 rename variable ctr to counter_element
 
 rename variable c to counter_number
+
 >>>>>>> 209c16c7a92cd2bdc18ff95b2aca3c78df38cac1
 
 rename variable bI to increment_button\
