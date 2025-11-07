@@ -3,31 +3,37 @@
 // This variable keeps track of the counter
 let counter_number = 0;
 
-// These constants are for button IDs and heading text
-const a = "increment", b = "counter", h = "CMPM 121 Project";
+const increment = "increment";
+const decrement = "decrement";
+const counter = "counter";
+const reset = "reset";
+const header = "CMPM 121 Project";
+
+document.body.innerHTML = `
+    <h1>${header}</h1>
+    <p>Counter: <span id=${counter}>0</span></p>
+    <button id=${increment}>Click Me!</button>
+    <button id=${decrement}>Decrement</button>
+    <button id=${reset}>Reset</button>
+  `;
+
+const increment_button = document.getElementById(increment);
+const decrement_button = document.getElementById(decrement);
+const reset_button = document.getElementById(reset);
+const counter_element = document.getElementById(counter);
+
+function updateDocument() {
+  if (!counter_element) return;
+  counter_element.innerHTML = `${counter_number}`;
+  // Update the document title
+  document.title = "Clicked " + counter_number;
+  // Change the background color based on even/odd count
+  document.body.style.backgroundColor = counter_number % 2
+    ? "pink"
+    : "lightblue";
+}
 
 function setup() {
-  // Create the HTML for the counter
-  document.body.innerHTML = `
-    <h1>${h}</h1>
-    <p>Counter: <span id="${b}">0</span></p>
-    <button id="${a}">Click Me!</button>
-    <button id="dec">Decrement</button>
-    <button id="reset">Reset</button>
-  `;
-  // this seems hard to update later
-
-  // these probably should be const, but these variable names are dire
-  // Get the increment button element from the document
-  const increment_button = document.getElementById(a);
-  // Get the decrement button element from the document
-  const decrement_button = document.getElementById("dec");
-  // Get the reset button element from the document
-  const reset_button = document.getElementById("reset");
-  // Get the counter span element from the document
-  const counter_element = document.getElementById(b);
-
-  // what!!!!!!!!
   // Check if any element is missing, then exit the function
   if (
     !increment_button || !decrement_button || !reset_button || !counter_element
@@ -37,40 +43,21 @@ function setup() {
   increment_button.addEventListener("click", () => {
     // Increase the counter by 1
     counter_number++;
-    counter_element.innerHTML = `${counter_number}`;
-    document.title = "Clicked " + counter_number;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = counter_number % 2
-      ? "pink"
-      : "lightblue";
+    updateDocument();
   });
 
   // Add click event to the decrement button
   decrement_button.addEventListener("click", () => {
     // Decrease the counter by 1
     counter_number--;
-    // Update the counter display
-    counter_element.innerHTML = `${counter_number}`;
-    // Update the document title
-    document.title = "Clicked " + counter_number;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = counter_number % 2
-      ? "pink"
-      : "lightblue";
+    updateDocument();
   });
 
   // Add click event to the reset button
   reset_button.addEventListener("click", () => {
     // Reset the counter to 0
     counter_number = 0;
-    // Update the counter display
-    counter_element.innerHTML = `${counter_number}`;
-    // Update the document title
-    document.title = "Clicked " + counter_number;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = counter_number % 2
-      ? "pink"
-      : "lightblue";
+    updateDocument();
   });
 }
 
